@@ -32,7 +32,7 @@ def do_calc(s: str):
         if operator == '*':
             sm.append(num_i2 * sm.pop(-1))
         elif operator == '/':
-            sm.append(num_i2 * (1 / sm.pop(-1)))
+            sm.append(num_i2 / sm.pop(-1))
         elif operator == '+':
             sm.append(num_i2)
         elif operator == '-':
@@ -42,4 +42,7 @@ def do_calc(s: str):
 
     return sum(sm)
 
-print(do_calc('12 + 8 * 6 + 2 * 14'))
+assert(do_calc('12 + 8 * 6 + 2 * 14') == 12 + 8 * 6 + 2 * 14)
+assert(do_calc('12 + 8') == 12 + 8)
+assert(do_calc('15 * 3 + 34 * 16') == 15 * 3 + 34 * 16)
+# some issue with division
