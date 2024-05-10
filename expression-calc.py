@@ -2,7 +2,6 @@ def do_calc(s: str):
     s = s.replace(' ', '')
     n = len(s)
     
-    md = []
     sm = []
 
     # get first number
@@ -32,7 +31,7 @@ def do_calc(s: str):
         if operator == '*':
             sm.append(num_i2 * sm.pop(-1))
         elif operator == '/':
-            sm.append(num_i2 / sm.pop(-1))
+            sm.append(sm.pop(-1) / num_i2)
         elif operator == '+':
             sm.append(num_i2)
         elif operator == '-':
@@ -44,5 +43,10 @@ def do_calc(s: str):
 
 assert(do_calc('12 + 8 * 6 + 2 * 14') == 12 + 8 * 6 + 2 * 14)
 assert(do_calc('12 + 8') == 12 + 8)
+assert(do_calc('12 / 2') == 12 / 2)
+assert(do_calc('12 - 2') == 12 - 2)
+assert(do_calc('3 + 12 / 2') == 3 + 12 / 2)
+assert(do_calc('3 + 12 / 2 - 7') == 3 + 12 / 2 - 7)
 assert(do_calc('15 * 3 + 34 * 16') == 15 * 3 + 34 * 16)
-# some issue with division
+assert(do_calc('2 + 15 * 3 / 4 + 34 * 16') == 2 + 15 * 3 / 4 + 34 * 16)
+assert(do_calc('2 + 15 * 3 - 5 / 4 + 34 * 16') == 2 + 15 * 3 - 5 / 4 + 34 * 16)
